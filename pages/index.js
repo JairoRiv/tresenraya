@@ -1,24 +1,36 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import Circle from "../components/Circle";
+import Cross from "../components/Cross";
 import { useState } from "react";
 
 export default function Home() {
   // def function Where clicked in the square
   const clickHandler = (id) => {
-    let image = document.createElement("img");
-    let imageParent = document.getElementById(id);
-    if (turn === 0) {
-      image.src = "/circle.svg";
+    if (eval(`sq${id}`) === 3 && turn === 0) {
+      eval(`setsq${id}(0)`);
       setTurn(1);
-    } else {
-      image.src = "/cross.svg";
+    } else if (eval(`sq${id}`) === 3 && turn === 1) {
+      eval(`setsq${id}(1)`);
       setTurn(0);
     }
-    imageParent.appendChild(image);
   };
 
   const square = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+
+  //Create state
   const [turn, setTurn] = useState(Math.round(Math.random()));
+
+  // State of the square
+  const [sq0, setsq0] = useState(3);
+  const [sq1, setsq1] = useState(3);
+  const [sq2, setsq2] = useState(3);
+  const [sq3, setsq3] = useState(3);
+  const [sq4, setsq4] = useState(3);
+  const [sq5, setsq5] = useState(3);
+  const [sq6, setsq6] = useState(3);
+  const [sq7, setsq7] = useState(3);
+  const [sq8, setsq8] = useState(3);
 
   return (
     <>
@@ -31,7 +43,14 @@ export default function Home() {
       <section id="turn">
         <p>Turno de:</p>
         <div>
-          {turn === 0 ? <img src="/circle.svg" /> : <img src="/cross.svg" />}
+          {((turn) => {
+            switch (turn) {
+              case 0:
+                return <Circle />;
+              case 1:
+                return <Cross />;
+            }
+          })(turn)}
         </div>
       </section>
 
@@ -42,7 +61,18 @@ export default function Home() {
               key={square}
               id={square}
               onClick={(e) => clickHandler(e.target.id)}
-            ></div>
+            >
+              {((turn) => {
+                switch (turn) {
+                  case 0:
+                    return <Circle />;
+                  case 1:
+                    return <Cross />;
+                  default:
+                    return <> </>;
+                }
+              })(eval(`sq${square}`))}
+            </div>
           ))}
         </div>
       </section>
