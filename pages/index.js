@@ -158,7 +158,7 @@ export default function Home() {
         button {
           background-color: #061722;
           color: white;
-          border: #fed01d solid 1px;
+          border: #fed01d solid 2px;
           width: 250px;
           height: 45px;
           font-weight: bold;
