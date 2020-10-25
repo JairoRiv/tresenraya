@@ -53,15 +53,19 @@ export default function Home() {
   const [sq8, setsq8] = useState(3);
 
   return (
-    <>
+    <div id="body">
       <Head>
         <title>Tres en raya</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Righteous&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <Header />
 
       <section id="turn">
-        <p>Turno de:</p>
+        <p>TURNO DE:</p>
         <div>
           {((turn) => {
             switch (turn) {
@@ -97,25 +101,32 @@ export default function Home() {
         </div>
       </section>
       <section className="button-container">
-        <button onClick={clickButton}>Otra Partida</button>
+        <button onClick={clickButton}>NUEVA PARTIDA</button>
       </section>
       <style jsx>{`
+        #body {
+          height: 100vh;
+          background-color: #061722;
+        }
         #turn {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          padding-top: 10px;
         }
         #turn p {
           font-weight: bold;
-          font-size: 20px;
+          font-size: 13px;
           margin: 10px 0;
+          font-family: "Press Start 2P", cursive;
+          color: white;
         }
         #turn div {
           width: 56px;
           height: 56px;
           border: solid black;
-          background-color: #ff540036;
+          background-color: #ffffff;
         }
         #turn img {
           width: 50px;
@@ -131,28 +142,30 @@ export default function Home() {
           display: grid;
           grid-template-columns: 33% 33% 33%;
           grid-template-rows: 33% 33% 33%;
+          border: #ffb937 solid 2px;
         }
         #main #container div {
           width: auto;
           height: auto;
           border: solid black;
           cursor: pointer;
+          border: #ffffff solid 1px;
         }
         .button-container {
           display: flex;
           justify-content: center;
         }
         button {
-          background-color: #a62739;
+          background-color: #061722;
           color: white;
-          border: black solid 1px;
-          border-radius: 50px;
-          width: 150px;
-          height: 30px;
+          border: #fed01d solid 1px;
+          width: 250px;
+          height: 45px;
           font-weight: bold;
-          font-size: 16px;
+          font-size: 14px;
+          font-family: "Press Start 2P", cursive;
         }
       `}</style>
-    </>
+    </div>
   );
 }
