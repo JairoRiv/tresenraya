@@ -2,6 +2,9 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Circle from "../components/Circle";
 import Cross from "../components/Cross";
+import CircleWin from "../components/CircleWin";
+import CrossWin from "../components/CrossWin";
+
 import { useState, useEffect } from "react";
 import Check from "../services/Check";
 
@@ -21,6 +24,18 @@ export default function Home() {
   const clickButton = () => {
     square.map((square) => {
       eval(`setsq${square}(3)`);
+
+      //Circle
+      let circulo = document.getElementById("circleWin");
+      if(circulo.classList.contains("showme")){
+        circulo.classList.remove("showme")
+      }
+
+      //Cruz
+      let cruz = document.getElementById("crossWin");
+      if(cruz.classList.contains("showme")){
+        cruz.classList.remove("showme")
+      }
     });
   };
 
@@ -79,6 +94,10 @@ export default function Home() {
       </section>
 
       <section id="main">
+
+      <CircleWin />
+      <CrossWin />
+
         <div id="container">
           {square.map((square) => (
             <div

@@ -1,8 +1,10 @@
 const Check = (r1, r2, r3) => {
   if (r1 === r2 && r1 === r3 && r1 === 0) {
-    alert("El O gana");
+    let circulo = document.getElementById("circleWin");
+    circulo.classList.add("showme")
   } else if (r1 === r2 && r1 === r3 && r1 === 1) {
-    alert("La X gana");
+    let cruz = document.getElementById("crossWin");
+    cruz.classList.add("showme")
   }
 };
 
