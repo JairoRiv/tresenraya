@@ -2,10 +2,9 @@ import Circle from "./Circle";
 
 const CircleWin = () => {
   return (
-    <div id='circleWin'>
-      <p>
-        Ganaste <Circle />
-      </p>
+    <div id="circleWin">
+      <p>Ganaste</p>
+      <Circle />
       <style jsx>{`
         div {
           width: 100vw;
@@ -21,6 +20,7 @@ const CircleWin = () => {
           justify-content: center;
           left: -100vw;
           transition: 0.5s;
+          z-index: 2;
         }
         p {
           display: block;

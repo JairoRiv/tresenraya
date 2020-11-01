@@ -2,10 +2,9 @@ import Cross from "./Cross";
 
 const CrossWin = () => {
   return (
-    <div id='crossWin'>
-      <p>
-        Ganaste <Cross />
-      </p>
+    <div id="crossWin">
+      <p>Ganaste</p>
+      <Cross />
       <style jsx>{`
         div {
           width: 100vw;
@@ -21,6 +20,7 @@ const CrossWin = () => {
           justify-content: center;
           left: -100vw;
           transition: 0.5s;
+          z-index: 2;
         }
         p {
           display: block;
